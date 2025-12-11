@@ -54,4 +54,17 @@ public class AlumnoRestApiController {
 
         return new ResponseEntity<>("Alumno recibido correctamente", HttpStatus.CREATED);
     }
+
+	    //A diferencia del metodo /getOne este si es API REST FUL!!!
+	@PostMapping(value = "/getOne/{nif}")
+	public Alumno getOne2(@PathVariable String nif) {
+		
+		if (nif.trim().equals("")) {
+			return null;
+		} else {
+			return new Alumno(nif, "Alfredo", "Martín Pérez", 34, true);
+		}
+	}
+	
 }
+
